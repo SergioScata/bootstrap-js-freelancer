@@ -1,3 +1,7 @@
+let discountNotUsed = true;
+let discountCodesavailable = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+
+
 
 function Calcoloprezzolavoro(event) {
     event.preventDefault();
@@ -22,10 +26,18 @@ function Calcoloprezzolavoro(event) {
         console.log(jobhourprice);
     }
 
+    let discountcode = document.getElementById("Discount").value;
 
+    if (!discountNotUsed) alert("Riprova ad inserire il discount code");
 
-
-
-
-    
+    for (i = 0; i < discountCodesavailable.length; i++) {
+        if (discountcode === discountCodesavailable[i] && discountNotUsed == true){
+            jobhourprice = jobhourprice * 0.75;
+            console.log(jobhourprice);
+        }
 }
+
+
+
+}
+
