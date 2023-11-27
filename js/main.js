@@ -1,28 +1,31 @@
 
-function Calcoloprezzolavoro(event){
+function Calcoloprezzolavoro(event) {
     event.preventDefault();
-   
-   
-    let jobhourprice = 0;
+
+    let hoursrequested = document.getElementById("hours").value;
+    hoursrequested = parseInt(hoursrequested);
+
     let worktype = document.getElementById("worktype");
     let worktypevalue = worktype.options[worktype.selectedIndex].value;
 
 
-    if(worktypevalue == "Backend Development"){
-        jobhourprice = 20,50;
+    if (worktypevalue == "Backend Development") {
+        let jobhourprice = hoursrequested * 20.50;
+        console.log(jobhourprice);
     }
-    else if(worktypevalue == "Frontend Development"){
-        jobhourprice = 15.30;
+    else if (worktypevalue == "Frontend Development") {
+        let jobhourprice = hoursrequested * 15.30;
+        console.log(jobhourprice);
     }
-    else if(worktypevalue == "Project Analysis"){
-        jobhourprice = 33.60;
+    else if (worktypevalue == "Project Analysis") {
+        let jobhourprice = hoursrequested * 33.60;
+        console.log(jobhourprice);
     }
 
-    console.log(jobhourprice);
 
-    let hoursrequested = document.getElementById("hours").value;
-    parseInt(hoursrequested);
-    let pricewithoutdiscount= hoursrequested * jobhourprice;
-    parseInt(pricewithoutdiscount);
-    console.log(pricewithoutdiscount);
+
+
+
+
+    
 }
