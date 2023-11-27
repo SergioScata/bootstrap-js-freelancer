@@ -129,8 +129,8 @@
                     <h3>WANT AN OFFER?</h3>
                 </div>
             </div>
-            <form class="row g-3" onsubmit="Calcoloprezzolavoro(event)">
-                <div class="col-md-6">
+            <form class="row g-3" onsubmit="Calculateprice(event)">
+                <div class="col-md-6" id="form">
                     <label for="inputFirstname" class="form-label">First name</label>
                     <input type="Name" class="form-control" id="inputFirstname" placeholder="Enter your first name...">
                 </div>
@@ -159,6 +159,7 @@
                 <div class="col-md-6">
                     <label for="inputCode" class="form-label">Discount code</label>
                     <input id="Discount" class="form-control">
+                    <h5 class="d-none text-danger" id="errormessage">Hai sbagliato codice! Ritenta!</h5>
                     </input>
                 </div>
 
@@ -172,8 +173,11 @@
             <div class="text-center my-3"><button type="submit" class="btn btn-warning text-center">Send</button></div>
         </form>
         </div>
-    </div>
 
+    </div>
+    <div id="Containerprice" class="container-fluid text-center">
+        <h4 id="finalprice"></h4>
+    </div>
     </main>
 
     <footer>

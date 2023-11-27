@@ -1,43 +1,37 @@
-let discountNotUsed = true;
-let discountCodesavailable = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
+let Codesavailable = ["YHDNU32", "JANJC63", "PWKCN25", "SJDPO96", "POCIE24"];
 
-
-
-function Calcoloprezzolavoro(event) {
+function Calculateprice(event) {
     event.preventDefault();
+    let hours = document.getElementById("hours").value;
+    let worktype = document.getElementById("worktype").value;
+    let Discountcode = document.getElementById("Discount").value;
 
-    let hoursrequested = document.getElementById("hours").value;
-    hoursrequested = parseInt(hoursrequested);
-
-    let worktype = document.getElementById("worktype");
-    let worktypevalue = worktype.options[worktype.selectedIndex].value;
-
-
-    if (worktypevalue == "Backend Development") {
-        let jobhourprice = hoursrequested * 20.50;
-        console.log(jobhourprice);
-    }
-    else if (worktypevalue == "Frontend Development") {
-        let jobhourprice = hoursrequested * 15.30;
-        console.log(jobhourprice);
-    }
-    else if (worktypevalue == "Project Analysis") {
-        let jobhourprice = hoursrequested * 33.60;
-        console.log(jobhourprice);
+    let price = 0;
+    price = parseFloat(price);
+    if (worktype == "Backend Development") {
+        price = hours * 20.5;
+        worktype = "Backend Development"
+    } else if (worktype == "Frontend Development") {
+        price = hours * 15.3;
+        worktype = "Frontend Development"
+    } else if (worktype == "Project Analysis") {
+        price = hours * 33.6;
+        worktype = "Project Analysis"
     }
 
-    let discountcode = document.getElementById("Discount").value;
+    if (Codesavailable.includes(Discountcode)) {
+        price = price / 100 * 75;
+    }
 
-    if (!discountNotUsed) alert("Riprova ad inserire il discount code");
-
-    for (i = 0; i < discountCodesavailable.length; i++) {
-        if (discountcode === discountCodesavailable[i] && discountNotUsed == true){
-            jobhourprice = jobhourprice * 0.75;
-            console.log(jobhourprice);
-        }
-}
+    else if (Codesavailable.length >= 1 && !Codesavailable.includes(Discountcode)) {
+        document.getElementById("errormessage").classList.remove("d-none");
+        return false;
+    }
+    price =price.toFixed(2);
+console.log(price);
 
 
+
+document.getElementById("finalprice").innerHTML = "The Price is: " + price + " €";
 
 }
-
