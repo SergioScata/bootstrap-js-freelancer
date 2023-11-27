@@ -25,7 +25,7 @@ function Calculateprice(event) {
 
     else if (Codesavailable.length >= 1 && !Codesavailable.includes(Discountcode)) {
         document.getElementById("errormessage").classList.remove("d-none");
-        return false;
+        
     }
     price =price.toFixed(2);
 console.log(price);
